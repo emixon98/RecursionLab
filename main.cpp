@@ -9,7 +9,7 @@ struct innerArr;
 //using variant since we need both arrays and integers in our vector
 using elements = variant<int, innerArr>;
 
-//an array inside our or array is treated as a vector that can also contain elements being either integers or another arr
+//an array inside our array is treated as a vector that can also contain elements being either integers or another arr
 struct innerArr {
     vector<elements> nums;
 };
@@ -21,8 +21,7 @@ void printNums(const vector<elements>& arr) {
         if(const int* num = get_if<int>(&e)){
             cout << *num << "\n";
         } else if (const innerArr* nested = get_if<innerArr>(&e)){ //if it is not an int it is an innerArr
-            printNums(nested->nums); //Recursive call for any nested arrays, which will in turn let us print
-            //their ints to console, until another array is reached
+            printNums(nested->nums); //Recursive call for any nested arrays, which continues until an integer is hit, which then gets printed
         }
     }
 }
