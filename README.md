@@ -41,5 +41,6 @@ def sum(low, high)
     return high + sum(low, high - 1)
 end
 ```
+When low is equal to high we have correctly decremented through all numbers between our upper and lower bounds and we are done. We make sure we account for that last value by returning it, which in this case can be either high or low since they are equal.
 ### Task 4: Write a recursive function that prints all numbers (and just numbers)
 
