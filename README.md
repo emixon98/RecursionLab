@@ -24,7 +24,7 @@ def factorial(n)
     return n * factorial(n - 2)
 end
 ```
-The factorial will produce infinite recursion due to the fact the base case will be skipped over. The factorial will be called in the following order:
+The factorial will produce infinite recursion due to the fact the base case will be skipped over, returning when n == 1. The factorial will be called in the following order:
 factorial(10), 10 * factorial(8), 8 * factorial(6), 6 * factorial(4), 4 * factorial(2), and where the problem occurs 2 * factorial(0), following this call the recursion will continue infinitely into negative integers which will lead to stack overflow.
 ### Task 3: Add the correct base case to the following code:
 #### Given function:
